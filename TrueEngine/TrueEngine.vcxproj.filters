@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TrueEngine">
+      <UniqueIdentifier>{9BD6546A-878E-96B7-F095-6F13DC6C31A8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\TrueEngine.h" />
+    <ClInclude Include="src\TrueEngine\Application.h">
+      <Filter>TrueEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrueEngine\Core.h">
+      <Filter>TrueEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrueEngine\EntryPoint.h">
+      <Filter>TrueEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrueEngine\Log.h">
+      <Filter>TrueEngine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\TrueEngine\Application.cpp">
+      <Filter>TrueEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TrueEngine\Log.cpp">
+      <Filter>TrueEngine</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
