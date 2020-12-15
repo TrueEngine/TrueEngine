@@ -1,9 +1,13 @@
+#include "tepch.h"
 #include "Application.h"
+
+#include "TrueEngine/Events/ApplicationEvent.h"
+#include "TrueEngine/Log.h"
 
 namespace TrueEngine {
 
 	Application::Application() {
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application() {
@@ -11,8 +15,10 @@ namespace TrueEngine {
 	}
 
 	void Application::Run() {
-		while (true) {
 
+		while (m_Running)
+		{
+			m_Window->OnUpdate();
 		}
 	}
 }

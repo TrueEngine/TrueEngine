@@ -1,3 +1,6 @@
 [submodule "TrueEngine/vendor/spdlog"]
 	path = TrueEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "TrueEngine/vendor/GLFW"]
+	path = TrueEngine/vendor/GLFW
+	url = https://github.com/TrueEngine/glfw.git

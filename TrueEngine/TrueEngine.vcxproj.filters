@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
     <Filter Include="TrueEngine">
       <UniqueIdentifier>{9BD6546A-878E-96B7-F095-6F13DC6C31A8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TrueEngine\Events">
+      <UniqueIdentifier>{1FA619E3-8BBC-1779-D433-A39A4089E800}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\TrueEngine.h" />
     <ClInclude Include="src\TrueEngine\Application.h">
       <Filter>TrueEngine</Filter>
@@ -16,16 +28,36 @@
     <ClInclude Include="src\TrueEngine\EntryPoint.h">
       <Filter>TrueEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\TrueEngine\Events\ApplicationEvent.h">
+      <Filter>TrueEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrueEngine\Events\Event.h">
+      <Filter>TrueEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrueEngine\Events\KeyEvent.h">
+      <Filter>TrueEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrueEngine\Events\MouseEvent.h">
+      <Filter>TrueEngine\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\TrueEngine\Log.h">
       <Filter>TrueEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\TrueEngine\Window.h">
+      <Filter>TrueEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tepch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\TrueEngine\Application.cpp">
       <Filter>TrueEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\TrueEngine\Log.cpp">
       <Filter>TrueEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\tepch.cpp" />
   </ItemGroup>
 </Project>

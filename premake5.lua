@@ -8,15 +8,24 @@ workspace "TrueEngine"
 		"Dist"
 	}
 
-	outputdir = "%{cfg.buildcfg}-%{cfg.system}-{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "TrueEngine/vendor/GLFW/include"
+
+include "TrueEngine/vendor/GLFW"
 
 project "TrueEngine"
 	location "TrueEngine"
 	kind "SharedLib"
-	language "c++"
+	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "tepch.h"
+	pchsource "TrueEngine/src/tepch.cpp"
 
 	files
 	{
@@ -26,7 +35,15 @@ project "TrueEngine"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
