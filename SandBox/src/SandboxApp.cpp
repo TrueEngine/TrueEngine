@@ -1,14 +1,18 @@
-#include "TrueEngine.h"
+#include <TrueEngine.h>
 
-class Sandbox : public TrueEngine::Application {
+class Sandbox : public TrueEngine::Application
+{
 public:
-	Sandbox() {
+	Sandbox()
+	{
 
 	}
 
-	~Sandbox() {
+	~Sandbox()
+	{
 
 	}
+
 };
 
 TrueEngine::Application* TrueEngine::CreateApplication()
