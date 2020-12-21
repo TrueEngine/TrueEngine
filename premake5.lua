@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "TrueEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "TrueEngine/vendor/Glad/include"
 
 include "TrueEngine/vendor/GLFW"
+include "TrueEngine/vendor/Glad"
 
 project "TrueEngine"
 	location "TrueEngine"
@@ -37,12 +39,14 @@ project "TrueEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links 
 	{ 
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -64,14 +68,17 @@ project "TrueEngine"
 
 	filter "configurations:Debug"
 		defines "TE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "TE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "TE_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -111,12 +118,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "TE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "TE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "TE_DIST"
+		buildoptions "/MD"
 		optimize "On"
