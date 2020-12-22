@@ -58,7 +58,8 @@ project "TrueEngine"
 		defines
 		{
 			"TE_PLATFORM_WINDOWS",
-			"TE_BUILD_DLL"
+			"TE_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
