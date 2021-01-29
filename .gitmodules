@@ -4,3 +4,6 @@
 [submodule "TrueEngine/vendor/GLFW"]
 	path = TrueEngine/vendor/GLFW
 	url = https://github.com/TrueEngine/glfw.git
+[submodule "TrueEngine/vendor/imgui"]
+	path = TrueEngine/vendor/imgui
+	url = https://github.com/TrueEngine/imgui

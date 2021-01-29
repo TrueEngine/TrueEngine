@@ -6,6 +6,8 @@
 #include "TrueEngine/Layer.h"
 #include "TrueEngine/Log.h"
 
+#include "TrueEngine/ImGui/ImGuiLayer.h"
+
 // ---Entry Point---------------------
 #include "TrueEngine/EntryPoint.h"
 // -----------------------------------
