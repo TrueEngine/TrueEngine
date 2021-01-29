@@ -18,14 +18,17 @@ IncludeDir["GLFW"] = "TrueEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "TrueEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "TrueEngine/vendor/imgui"
 
-include "TrueEngine/vendor/GLFW"
-include "TrueEngine/vendor/Glad"
-include "TrueEngine/vendor/imgui"
+group "Dependencies"
+	include "TrueEngine/vendor/GLFW"
+	include "TrueEngine/vendor/Glad"
+	include "TrueEngine/vendor/imgui"
+group ""
 
 project "TrueEngine"
 	location "TrueEngine"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -58,7 +61,6 @@ project "TrueEngine"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -70,28 +72,29 @@ project "TrueEngine"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox\"")
 		}
 
 	filter "configurations:Debug"
 		defines "TE_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "TE_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "TE_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +118,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -125,15 +127,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "TE_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "TE_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "TE_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
